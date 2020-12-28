@@ -13,7 +13,7 @@ namespace Client
         {
             using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
             {
-                Console.WriteLine("Pushing messages to DemoTx queue");
+                Console.WriteLine("Pushing messages to DemoTx msmq queue");
                 localhost.Service1Client proxy = new localhost.Service1Client();
                 int count;
                 count = 1;
@@ -27,7 +27,7 @@ namespace Client
                 count = 5;
                 proxy.SendMessage(string.Format("This is {0} message from client", count));
                 ts.Complete();
-                Console.WriteLine("Pushed messages to DemoTx queue");
+                Console.WriteLine("Pushed messages to DemoTx msmq queue");
             }
                 
         }
